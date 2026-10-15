@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Page not found | Saquib Khan</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#F7F9FC; --ink:#111827; --ink-soft:#5B6472; --accent:#0087EB; --line:rgba(17,24,39,.09); }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0; color:var(--ink);
+    background:
+      radial-gradient(900px 600px at 15% 0%, rgba(255,224,174,.5) 0%, transparent 60%),
+      radial-gradient(1100px 900px at 85% 100%, rgba(177,227,255,.6) 0%, transparent 60%),
+      var(--bg);
+    font-family:'Inter',system-ui,sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:24px;
+  }
+  .mono{font-family:'JetBrains Mono'; color:var(--ink-soft); font-size:.9rem;}
+  h1{font-family:'Plus Jakarta Sans'; font-size:clamp(4rem, 14vw, 7rem); margin:14px 0; color:var(--accent); letter-spacing:-.02em;}
+  p{color:var(--ink-soft); margin:0 0 32px; font-size:1rem;}
+  a.home{
+    display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#FFFFFF;
+    text-decoration:none; padding:12px 24px; border-radius:100px; font-weight:600; font-size:.9rem;
+  }
+  a.home:hover{background:#0068B8;}
+</style>
+</head>
+<body>
+  <div>
+    <p class="mono">$ cd /requested-page</p>
+    <h1>404</h1>
+    <p>This route doesn't exist. Even a well-structured REST API returns one of these sometimes.</p>
+    <a class="home" href="/">&larr; Back to the portfolio</a>
+  </div>
+</body>
+</html>
