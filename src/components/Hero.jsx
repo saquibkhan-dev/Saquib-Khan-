@@ -1,4 +1,3 @@
-import { Mail } from 'lucide-react';
 import useCountUp from '../hooks/useCountUp.js';
 import { profile, roleOrder, roleLabels, roleTitles, roleSummaries, heroKpis } from '../data.js';
 
@@ -15,23 +14,25 @@ function Kpi({ count, suffix, label }) {
 }
 
 export default function Hero({ role, onRoleChange }) {
+  const [first, ...rest] = profile.name.split(' ');
+
   return (
     <section id="hero">
-      <div className="hero-main">
-        <div>
-          <div className="hero-badge">
-            <span className="dot" />
-            Open to full-stack, frontend &amp; backend roles
-          </div>
+      <div className="hero-meta">
+        <span>{profile.name} / Portfolio</span>
+        <span>{profile.location} &mdash; 2026</span>
+        <span>Role: {roleLabels[role]}</span>
+      </div>
 
-          <p className="hero-tag mono">$ whoami --role={role}</p>
-
+      <div className="hero-grid">
+        <div className="hero-copy">
           <h1 className="hero-name">
-            {profile.name.split(' ')[0]} <span className="accent">{profile.name.split(' ').slice(1).join(' ')}</span>
+            {first}
             <br />
-            <span className="bracket">{'{'}</span> {roleTitles[role]} <span className="bracket">{'}'}</span>
+            {rest.join(' ')}<span className="dot">.</span>
           </h1>
 
+          <p className="hero-title">{roleTitles[role]}</p>
           <p className="hero-role-line">{roleSummaries[role]}</p>
 
           <div className="role-toggle" role="group" aria-label="View portfolio as">
@@ -48,39 +49,24 @@ export default function Hero({ role, onRoleChange }) {
           </div>
 
           <div className="hero-actions">
-            <a href="#contact" className="btn-accent"><Mail size={16} /> Hire me</a>
+            <a href="#contact" className="btn-accent">Hire me &rarr;</a>
             <a href="#projects" className="btn-ghost">View projects</a>
           </div>
         </div>
 
-        <div className="hero-visual">
+        <div className="hero-art">
+          <div className="hero-circle" aria-hidden="true" />
           <picture className="hero-photo-wrap">
             <source srcSet="/profile-photo.webp" type="image/webp" />
             <img
               className="hero-photo"
               src="/profile-photo.jpg"
-              alt={`Portrait of ${profile.name}`}
+              alt={`Black and white portrait of ${profile.name}`}
               width="160"
               height="160"
               loading="eager"
             />
           </picture>
-
-          <div className="code-float" aria-hidden="true">
-            <div className="chrome"><span /><span /><span /></div>
-            <pre><code>{`// auth-interceptor.ts
-api.interceptors.response.use(
-  `}<span className="kw">res</span> {`=> res,`}{`
-  `}<span className="kw">async</span> {`(error) => {
-    `}<span className="kw">if</span> {`(error.status === `}<span className="str">401</span>{`) {
-      `}<span className="kw">await</span> {`refreshToken();
-      `}<span className="kw">return</span> {`api(error.config);
-    }
-    `}<span className="kw">throw</span> {`error;
-  }
-);
-`}<span className="cm">{`// silent refresh, zero retries lost`}</span></code></pre>
-          </div>
         </div>
       </div>
 

@@ -2,22 +2,13 @@ import { ExternalLink, Github } from 'lucide-react';
 import useReveal from '../hooks/useReveal.js';
 import { codingProjects, dataProjects } from '../data.js';
 
-const THUMB_COLORS = [
-  'linear-gradient(135deg, #0F2847, #0A1B30)',
-  'linear-gradient(135deg, #15324A, #0D1F30)',
-  'linear-gradient(135deg, #1E2A47, #121A2E)',
-];
-
 function ProjectCard({ project, index }) {
   return (
     <div className="project-card">
-      <div className="project-thumb" style={{ background: THUMB_COLORS[index % THUMB_COLORS.length] }}>
-        <span className="dots"><span /><span /><span /></span>
-        <span className="project-thumb-label mono">{project.name}</span>
-      </div>
+      <span className="project-num">{String(index + 1).padStart(2, '0')}</span>
       <div className="project-body">
         <h3>{project.name}</h3>
-        <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: '.85rem' }}>{project.subtitle}</p>
+        <p>{project.subtitle}</p>
         <ul>
           {project.bullets.map((b, i) => <li key={i}>{b}</li>)}
         </ul>
